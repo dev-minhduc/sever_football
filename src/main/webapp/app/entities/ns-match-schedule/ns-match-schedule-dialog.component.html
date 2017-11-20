@@ -1,0 +1,50 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNs_Match_ScheduleLabel">Create or edit a Ns Match Schedule</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ns_Match_Schedule.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ns_Match_Schedule.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_team1">Team 1</label>
+            <input type="text" class="form-control" name="team1" id="field_team1"
+                [(ngModel)]="ns_Match_Schedule.team1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_team2">Team 2</label>
+            <input type="text" class="form-control" name="team2" id="field_team2"
+                [(ngModel)]="ns_Match_Schedule.team2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_thumbnail1">Thumbnail 1</label>
+            <input type="text" class="form-control" name="thumbnail1" id="field_thumbnail1"
+                [(ngModel)]="ns_Match_Schedule.thumbnail1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_thumbnail2">Thumbnail 2</label>
+            <input type="text" class="form-control" name="thumbnail2" id="field_thumbnail2"
+                [(ngModel)]="ns_Match_Schedule.thumbnail2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_satus">Satus</label>
+            <input type="checkbox" class="form-control" name="satus" id="field_satus"
+                [(ngModel)]="ns_Match_Schedule.satus"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

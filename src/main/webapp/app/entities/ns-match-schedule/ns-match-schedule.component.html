@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span>Ns Match Schedules</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ns-match-schedule" [routerLink]="['/', { outlets: { popup: ['ns-match-schedule-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Ns Match Schedule
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ns_Match_Schedules">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="team1"><span>Team 1</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="team2"><span>Team 2</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="thumbnail1"><span>Thumbnail 1</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="thumbnail2"><span>Thumbnail 2</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="satus"><span>Satus</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let ns_Match_Schedule of ns_Match_Schedules ;trackBy: trackId">
+                <td><a [routerLink]="['../ns-match-schedule', ns_Match_Schedule.id ]">{{ns_Match_Schedule.id}}</a></td>
+                <td>{{ns_Match_Schedule.team1}}</td>
+                <td>{{ns_Match_Schedule.team2}}</td>
+                <td>{{ns_Match_Schedule.thumbnail1}}</td>
+                <td>{{ns_Match_Schedule.thumbnail2}}</td>
+                <td>{{ns_Match_Schedule.satus}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ns-match-schedule', ns_Match_Schedule.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ns-match-schedule/'+ ns_Match_Schedule.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ns-match-schedule/'+ ns_Match_Schedule.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

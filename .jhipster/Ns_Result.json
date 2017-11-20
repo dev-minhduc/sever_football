@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "team1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "team2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "result",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "satus",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20171117101008",
+    "entityTableName": "ns_result",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,41 @@
+
+<div *ngIf="ns_Match_Schedule">
+    <h2><span>Ns Match Schedule</span> {{ns_Match_Schedule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Team 1</span></dt>
+        <dd>
+            <span>{{ns_Match_Schedule.team1}}</span>
+        </dd>
+        <dt><span>Team 2</span></dt>
+        <dd>
+            <span>{{ns_Match_Schedule.team2}}</span>
+        </dd>
+        <dt><span>Thumbnail 1</span></dt>
+        <dd>
+            <span>{{ns_Match_Schedule.thumbnail1}}</span>
+        </dd>
+        <dt><span>Thumbnail 2</span></dt>
+        <dd>
+            <span>{{ns_Match_Schedule.thumbnail2}}</span>
+        </dd>
+        <dt><span>Satus</span></dt>
+        <dd>
+            <span>{{ns_Match_Schedule.satus}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ns-match-schedule/'+ ns_Match_Schedule.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

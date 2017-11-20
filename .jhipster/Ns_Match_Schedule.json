@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "team1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "team2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "satus",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20171117101009",
+    "entityTableName": "ns_match_schedule",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "battle",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "win",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "draw",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lose",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "diff",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "point",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "satus",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20171117101007",
+    "entityTableName": "ns_rank",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

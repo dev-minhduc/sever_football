@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span>Ns Highlights</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ns-highlight" [routerLink]="['/', { outlets: { popup: ['ns-highlight-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Ns Highlight
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ns_Highlights">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span>Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="img"><span>Img</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="link"><span>Link</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="date"><span>Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status"><span>Status</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let ns_Highlight of ns_Highlights ;trackBy: trackId">
+                <td><a [routerLink]="['../ns-highlight', ns_Highlight.id ]">{{ns_Highlight.id}}</a></td>
+                <td>{{ns_Highlight.title}}</td>
+                <td>{{ns_Highlight.img}}</td>
+                <td>{{ns_Highlight.link}}</td>
+                <td>{{ns_Highlight.date | date:'mediumDate'}}</td>
+                <td>{{ns_Highlight.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ns-highlight', ns_Highlight.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ns-highlight/'+ ns_Highlight.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ns-highlight/'+ ns_Highlight.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

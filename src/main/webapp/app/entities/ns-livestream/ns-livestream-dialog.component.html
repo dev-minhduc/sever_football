@@ -1,0 +1,68 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNs_LivestreamLabel">Create or edit a Ns Livestream</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ns_Livestream.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ns_Livestream.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="ns_Livestream.title" required />
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_link">Link</label>
+            <input type="text" class="form-control" name="link" id="field_link"
+                [(ngModel)]="ns_Livestream.link"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_thumb1">Thumb 1</label>
+            <input type="text" class="form-control" name="thumb1" id="field_thumb1"
+                [(ngModel)]="ns_Livestream.thumb1" required />
+            <div [hidden]="!(editForm.controls.thumb1?.dirty && editForm.controls.thumb1?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.thumb1?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_thumb2">Thumb 2</label>
+            <input type="text" class="form-control" name="thumb2" id="field_thumb2"
+                [(ngModel)]="ns_Livestream.thumb2" required />
+            <div [hidden]="!(editForm.controls.thumb2?.dirty && editForm.controls.thumb2?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.thumb2?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_status">Status</label>
+            <input type="checkbox" class="form-control" name="status" id="field_status"
+                [(ngModel)]="ns_Livestream.status"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

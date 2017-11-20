@@ -1,0 +1,41 @@
+
+<div *ngIf="ns_Livestream">
+    <h2><span>Ns Livestream</span> {{ns_Livestream.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{ns_Livestream.title}}</span>
+        </dd>
+        <dt><span>Link</span></dt>
+        <dd>
+            <span>{{ns_Livestream.link}}</span>
+        </dd>
+        <dt><span>Thumb 1</span></dt>
+        <dd>
+            <span>{{ns_Livestream.thumb1}}</span>
+        </dd>
+        <dt><span>Thumb 2</span></dt>
+        <dd>
+            <span>{{ns_Livestream.thumb2}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{ns_Livestream.status}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ns-livestream/'+ ns_Livestream.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

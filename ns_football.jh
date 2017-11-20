@@ -1,0 +1,55 @@
+entity Ns_Livestream {
+	title String required,
+    link String ,
+    thumb1 String required,
+    thumb2 String required,
+    status Boolean
+}
+entity Ns_Highlight {
+	title String required,
+    img String,
+    link String,
+    date LocalDate required,
+	status Boolean   
+}
+
+entity Ns_Rank {
+	name String,
+    thumbnail String,
+	battle Integer,
+    win Integer,
+    draw Integer,
+    lose Integer,
+    diff String,
+    point Integer
+    satus Boolean 
+}
+
+entity Ns_Result {
+	team1 String,
+    team2 String,
+    result String,
+    thumbnail1 String,
+    thumbnail2 String,
+    satus Boolean 
+}
+
+entity Ns_Match_Schedule {
+	team1 String,
+    team2 String,
+    thumbnail1 String,
+    thumbnail2 String,
+    satus Boolean  
+}
+
+
+enum Language {
+    ENGLISH, VIETNAMESE
+}
+
+// Set pagination options
+paginate Ns_Livestream, Ns_Highlight, Ns_Match_Schedule, Ns_Result, Ns_Result, Ns_Rank with pagination
+paginate Ns_Livestream, Ns_Highlight, Ns_Match_Schedule, Ns_Result, Ns_Result, Ns_Rank with infinite-scroll 
+
+
+

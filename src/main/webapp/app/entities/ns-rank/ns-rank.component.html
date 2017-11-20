@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span>Ns Ranks</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ns-rank" [routerLink]="['/', { outlets: { popup: ['ns-rank-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Ns Rank
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ns_Ranks">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="thumbnail"><span>Thumbnail</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="battle"><span>Battle</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="win"><span>Win</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="draw"><span>Draw</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lose"><span>Lose</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="diff"><span>Diff</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="point"><span>Point</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="satus"><span>Satus</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let ns_Rank of ns_Ranks ;trackBy: trackId">
+                <td><a [routerLink]="['../ns-rank', ns_Rank.id ]">{{ns_Rank.id}}</a></td>
+                <td>{{ns_Rank.name}}</td>
+                <td>{{ns_Rank.thumbnail}}</td>
+                <td>{{ns_Rank.battle}}</td>
+                <td>{{ns_Rank.win}}</td>
+                <td>{{ns_Rank.draw}}</td>
+                <td>{{ns_Rank.lose}}</td>
+                <td>{{ns_Rank.diff}}</td>
+                <td>{{ns_Rank.point}}</td>
+                <td>{{ns_Rank.satus}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ns-rank', ns_Rank.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ns-rank/'+ ns_Rank.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ns-rank/'+ ns_Rank.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
